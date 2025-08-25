@@ -1,82 +1,55 @@
-# Lightweight React Template for KAVIA
+# StreamView Frontend (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+Modern, lightweight React frontend for an online streaming platform with:
+- User authentication
+- Content browsing and search
+- Video playback (HTML5)
+- Account management
+- Subscription and payment integration (mock)
+- Watchlist and viewing history
+- Responsive modern UI using the specified theme and colors
+
+## Quick Start
+
+- Install: npm install
+- Run dev: npm start
+- Build: npm run build
+- Test: npm test
+
+Open http://localhost:3000 to view.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Authentication (mock, accepts any email/password)
+- Browse catalog with filters (genre, year, sort) and search
+- Play videos in a modal with progress tracking
+- Manage profile (name) and subscription (activate/cancel) in Account
+- Add/remove items from Watchlist
+- History with progress bars and timestamps
+- Clean, responsive UI with primary #191970, secondary #FFFFFF, accent #FF7F50
 
-## Getting Started
+## Structure
 
-In the project directory, you can run:
+src/
+- App.js: route configuration and layout
+- theme.css: theme and global styles
+- context/AuthContext.jsx: auth state across app
+- services/api.js: mock API ready to be replaced with real endpoints
+- components/: Navbar, PlayerModal, ContentCard, ProfileMenu
+- pages/: Browse, Login, Register, Account, Watchlist, History
 
-### `npm start`
+## Integration
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Replace the implementations in src/services/api.js with real REST calls (and OAuth) when backend is available. Keep the same function signatures to minimize changes.
 
-### `npm test`
+Environment variables are not required for this mock. For production integrations, use a .env file and import via process.env.
 
-Launches the test runner in interactive watch mode.
+## Accessibility
 
-### `npm run build`
+- Landmarks for search, dialog roles for modal
+- Labels on form elements and buttons
+- Keyboard-friendly components
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
 
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Internal Kavia template adaptation.
