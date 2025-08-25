@@ -1,0 +1,107 @@
+:root {
+  --nav-height: 64px;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.app-main {
+  min-height: calc(100vh - var(--nav-height) - 60px);
+  padding: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.app-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-text-muted);
+}
+
+.page-title {
+  font-size: 24px;
+  margin: 0 0 16px 0;
+  color: var(--color-primary);
+}
+
+.grid {
+  display: grid;
+  grid-gap: 16px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .app-main { padding: 16px; }
+  .grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .grid-4, .grid-3 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.button {
+  appearance: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .05s ease, box-shadow .2s ease, background .2s ease;
+}
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.button-ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  background: rgba(25, 25, 112, 0.08);
+  color: var(--color-primary);
+  border-radius: 999px;
+  font-size: 12px;
+}
+.input, .select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-card);
+  color: var(--color-text);
+}
+.flex { display: flex; gap: 12px; align-items: center; }
+.space-between { justify-content: space-between; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+
+.page-loading {
+  padding: 40px;
+  text-align: center;
+}

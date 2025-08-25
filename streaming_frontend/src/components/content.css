@@ -1,0 +1,21 @@
+.content-card { display: flex; flex-direction: column; }
+.poster {
+  position: relative;
+  background: #ddd;
+  padding-top: 150%;
+  background-size: cover;
+  background-position: center;
+}
+.poster-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.1));
+  opacity: 0; transition: opacity .2s ease;
+}
+.poster:hover .poster-overlay { opacity: 1; }
+.content-meta { padding: 12px; }
+.content-meta .title { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.meta-row { display: flex; gap: 6px; margin: 8px 0; }
+.actions { display: flex; gap: 8px; }
+.empty { padding: 20px; text-align: center; color: var(--color-text-muted); }
