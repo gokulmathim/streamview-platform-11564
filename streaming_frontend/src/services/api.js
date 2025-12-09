@@ -22,9 +22,18 @@ function setToken(token) {
   else localStorage.removeItem(STORAGE.TOKEN);
 }
 
+function safeParse(raw, fallback) {
+  if (!raw) return fallback;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return fallback;
+  }
+}
+
 function getUser() {
   const raw = localStorage.getItem(STORAGE.USER);
-  return raw ? JSON.parse(raw) : null;
+  return safeParse(raw, null);
 }
 
 function setUser(user) {
@@ -132,7 +141,7 @@ export const api = {
   async getSubscription() {
     await wait(200);
     const raw = localStorage.getItem(STORAGE.SUBSCRIPTION);
-    return raw ? JSON.parse(raw) : { plan: 'Free', status: 'inactive', renewsOn: null };
+    return safeParse(raw, { plan: 'Free', status: 'inactive', renewsOn: null });
   },
 
   async subscribe(plan = 'Premium') {
@@ -164,7 +173,7 @@ export const api = {
   async getWatchlist() {
     await wait(120);
     const raw = localStorage.getItem(STORAGE.WATCHLIST);
-    return raw ? JSON.parse(raw) : [];
+    return safeParse(raw, []);
   },
 
   async toggleWatchlist(item) {
@@ -182,7 +191,7 @@ export const api = {
   async getHistory() {
     await wait(100);
     const raw = localStorage.getItem(STORAGE.HISTORY);
-    return raw ? JSON.parse(raw) : [];
+    return safeParse(raw, []);
   },
 
   async addHistory(item) {

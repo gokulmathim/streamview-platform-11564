@@ -14,13 +14,15 @@ export default [
         document: true,
         window: true,
         test: true,
-        expect: true
+        expect: true,
+        jest: true
       }
     },
     rules: {
-
-     'no-unused-vars': ['error', { varsIgnorePattern: 'React|App' }]
-
+      'no-unused-vars': ['error', { varsIgnorePattern: 'React' }],
+      // Enable hooks rules (plugin recommended to install):
+      // 'react-hooks/rules-of-hooks': 'error',
+      // 'react-hooks/exhaustive-deps': 'warn'
     }
   },
   pluginJs.configs.recommended,
